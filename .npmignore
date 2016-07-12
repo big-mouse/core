@@ -1,0 +1,7 @@
+.idea
+src
+test
+*.log
+.DS_STORE
+npm-debug.log
+big-mouse-0.0.1.tgz
