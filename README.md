@@ -9,7 +9,7 @@ This is a experimental technology under development. Please, check a demo [here]
 If you liked what you tasted, go ahead and set it up as first step before starting to use it. We use `npm` in order to download and install it, but if this best fits a npm-free installation for you, then go to our [releases](https://github.com/big-mouse/core/releases) page and download it directly from there.
 
 ```bash
-npm install big-mouse
+npm install bigmouse
 ```
 
 ## Cheeses (aka Plugins)
@@ -26,8 +26,8 @@ If using `npm`, just import this, otherwise, both your big mouse and your cheese
 
 ```js
 // using npm (CommonJS)
-import BigMouse form 'big-mouse';
-import BigMouseParticles from 'big-mouse-particles';
+import BigMouse form 'bigmouse';
+import BigMouseParticles from 'bigmouse-particles';
 ```
 
 ```js
