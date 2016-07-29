@@ -33,8 +33,8 @@ export function createCanvas(self){
 
     const canvas = document.createElement('canvas');
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = document.body.scrollWidth;//window.innerWidth;
+    canvas.height = document.body.scrollHeight;//window.innerHeight;
     canvas.setAttribute("style", "position:absolute;top:0;left:0;pointer-events:none;");
 
     document.body.appendChild(canvas);
@@ -83,8 +83,8 @@ function  getCurrentMousePos(canvasDOM, event) {
     const scaleY = canvasDOM.height / rect.height;  // relationship bitmap vs. element for Y
 
     return {
-        x: (event.clientX - rect.left) * scaleX,   // scale mouse coordinates after they have
-        y: (event.clientY - rect.top) * scaleY     // been adjusted to be relative to element
+        x: event.pageX - window.pageXOffset, // (event.pageX - rect.left) * scaleX,   // scale mouse coordinates after they have
+        y: event.pageY - window.pageYOffset// (event.pageY - rect.top) * scaleY     // been adjusted to be relative to element
     }
 }
 
@@ -145,7 +145,7 @@ function onMouseMove(self){
 
             const element = document.elementFromPoint(self.mouseCoords.x, self.mouseCoords.y);
 
-            if(element.isSameNode(self.currentElement)) return;
+            if(element && element.isSameNode(self.currentElement)) return;
 
             if(element && element.tagName.toLowerCase() === self.options.selector){
 
@@ -174,8 +174,8 @@ function onResize(self){
 
     return event => {
 
-        self.canvas.el.width = window.innerWidth;
-        self.canvas.el.height = window.innerHeight;
+        self.canvas.el.width = document.body.scrollWidth;
+        self.canvas.el.height = document.body.scrollHeight;
 
     }
 }
